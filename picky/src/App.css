@@ -8,17 +8,27 @@
 }
 
 .App-header {
-  background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+  font-size: 22px;
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Form {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.Front-page, body {
+  background-color: green;
+  height: 100%;
+}
+
+.Link {
+  font-size: 12px;
+  margin: 20px;
 }
