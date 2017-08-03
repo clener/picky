@@ -2,41 +2,59 @@ import React, { Component } from 'react';
 import TextField from './TextField'
 
 class EntryScreen extends Component {
-    /*constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
-
-        }
-        
-    }*/
-
-    
-  sendData(e) {
-    this.props.data(e);
-    console.log("data is " + data);
-  }
-
-    handleSubmit(e){
-        console.log(this.refs);
-        e.preventDefault();
+            username : '',
+            password : '',
+            isUserNew : false,
+        };
+        this.handleData = this.handleData.bind(this);
+        this.getData = this.getData.bind(this);
+        this.signUp = this.signUp.bind(this);
     }
 
-    /*handleEntry(userName, passWord) {
-        const username = userName;
-        const password = passWord;
-        projects.push(userName);
-        this.setState({projects:projects});
-    }*/
+    handleData(field) {
+        return (data) => {
+            const x = Object.assign({}, this.state);
+            x[field] = data.target.value;
+            this.setState(x);
+            console.log(this.state);
+        };
+    }
+
+    getData() {
+        const username = this.state.username;
+        const password = this.state.password;
+        console.log("username is " + username + " and password is " + password);
+
+    }
+
+    signUp() {
+        const isUserNew = Object.assign({}, this.state, { isUserNew: true });
+        this.setState(isUserNew);
+    }
 
     render () {
         return (
             <div>
                 <div className="entryScreen">
-                    <TextField name="username"/>
-                    <TextField name="password"/>  
-                    <input onClick={this.handleSubmit.bind(this)} type="submit" value="Enter"/> <br/>
+                    {!this.state.isUserNew ? 
+                        <div>
+                            <TextField name="username" receiveData={this.handleData('username')} />
+                            <TextField name="password" receiveData={this.handleData('password')} />
+                            <input type="submit" value="Enter" onClick={this.getData} /> <br/>
+                            <input type="submit" value="Not a member? Sign up!" onClick={this.signUp} />
+                        </div>  
+                        :
+                        <div> 
+                            <TextField name="email" receiveData={this.handleData('email')}/>
+                            <TextField name="username" receiveData={this.handleData('username')} />
+                            <TextField name="password" receiveData={this.handleData('password')} />
+                            <input type="submit" value="Enter" onClick={this.getData} /> 
+                        </div>
+                    }
                 </div>  
-                <a href="#" className="Link">Not a member? Sign up!</a>
             </div>
         );    
     }

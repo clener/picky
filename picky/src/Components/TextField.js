@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 
 class TextField extends Component {
-  /*constructor (props) {
+  constructor(props) {
     super (props);
-    this.state = {
-      input = ''
+    this.state = { 
+      input: '' 
     };
-  }*/
-
-  sendData(e) {
-    this.props.data(e);
+    this.sendData = this.sendData.bind(this);
   }
 
+  sendData(input) {
+    this.props.receiveData(input);
+    this.setState({
+      input: input.target.value
+    });
+    console.log(input.target.value);
+  }
 
   render() {
     return (
       <form className="Form">
         {this.props.name}: <br/>
-        <input 
-          value={this.state.input} onChange={e => sendData(e)}/><br/>
+        <input value={this.state.input} onChange={this.sendData}/><br/>
       </form>
     );
   }
