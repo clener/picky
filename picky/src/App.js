@@ -3,6 +3,8 @@ import bag from './bag.png';
 import EntryScreen from './Components/EntryScreen';
 import './App.css';
 
+var RouteHandler = require('react-router').RouteHandler;  
+
 class App extends Component {
   render() {
     return (
