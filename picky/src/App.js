@@ -12,7 +12,7 @@ class App extends Component {
             <img src={bag} className="App-logo" alt="logo" />
             <h2>Welcome to Picky</h2>
           </div>
-          <EntryScreen/>
+          <EntryScreen />
         </div>
       </div>
     );
