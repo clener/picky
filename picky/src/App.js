@@ -3,6 +3,8 @@ import bag from './bag.png';
 import EntryScreen from './Components/EntryScreen';
 import './App.css';
 
+var RouteHandler = require('react-router').RouteHandler;  
+
 class App extends Component {
   render() {
     return (
@@ -12,7 +14,7 @@ class App extends Component {
             <img src={bag} className="App-logo" alt="logo" />
             <h2>Welcome to Picky</h2>
           </div>
-          <EntryScreen/>
+          <EntryScreen />
         </div>
       </div>
     );
