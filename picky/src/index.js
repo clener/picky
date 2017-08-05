@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Product from './Components/Product'
 import registerServiceWorker from './registerServiceWorker';
-import Router from 'react-router';  
-import routes from './routes';
+import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
-Router.run(routes, function(Handler) {  
-    React.render(<Handler />, document.getElementById('app'));
-});
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+      <Route path="product" component={Product} />
+    </Route>
+  </Router>, 
+  document.getElementById('root'));
 registerServiceWorker();

@@ -15,35 +15,37 @@ class EntryScreen extends Component {
     this.signUp = this.signUp.bind(this);
 }
 
-    handleData(field) {
-        return (data) => {
-          const x = Object.assign({}, this.state);
-          x[field] = data.target.value;
-          this.setState(x);
-          console.log(this.state);
-        };
-    }
+  handleData(field) {
+      return (data) => {
+        const x = Object.assign({}, this.state);
+        x[field] = data.target.value;
+        this.setState(x);
+        console.log(this.state);
+      };
+  }
 
-    getData() {
-      const username = this.state.username;
-      const password = this.state.password;
-      console.log("username is " + username + " and password is " + password);
-    }
+  getData() {
+    const username = this.state.username;
+    const password = this.state.password;
+    console.log("username is " + username + " and password is " + password);
+  }
 
-    signUp() {
-      const isUserNew = Object.assign({}, this.state, { isUserNew: true });
-      this.setState(isUserNew);
-    }
+  signUp() {
+    const isUserNew = Object.assign({}, this.state, { isUserNew: true });
+    this.setState(isUserNew);
+  }
 
-    render () {
-      return (
-        <div>
-          <div className="entryScreen">
-            {!this.state.isUserNew ? 
-              <div>
+  render () {
+    return (
+      <div>
+        <div className="entryScreen">
+          {!this.state.isUserNew ? 
+            <div>
               <TextField name="username" receiveData={this.handleData('username')} />
               <TextField name="password" receiveData={this.handleData('password')} />
-              <input type="submit" value="Enter" onClick={this.getData} /> <br/>
+              <Link to='/product'>
+                <input type="submit" value="Enter" onClick={this.getData} /> <br/>
+              </Link>
               <input type="submit" value="Not a member? Sign up!" onClick={this.signUp} />
             </div>  
             :
@@ -51,7 +53,9 @@ class EntryScreen extends Component {
               <TextField name="email" receiveData={this.handleData('email')}/>
               <TextField name="username" receiveData={this.handleData('username')} />
               <TextField name="password" receiveData={this.handleData('password')} />
-              <input type="submit" value="Enter" onClick={this.getData} /> 
+              <Link to='/product'>
+                <input type="submit" value="Enter" onClick={this.getData} /> <br/>
+              </Link>
             </div>
           }
         </div>  
