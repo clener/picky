@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import TextField from './TextField';
-import Product from './Product';
+import Products from '../Pages/Products';
 
-class EntryScreen extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
       this.state = {
@@ -13,7 +14,7 @@ class EntryScreen extends Component {
     this.handleData = this.handleData.bind(this);
     this.getData = this.getData.bind(this);
     this.signUp = this.signUp.bind(this);
-}
+  }
 
   handleData(field) {
       return (data) => {
@@ -43,7 +44,7 @@ class EntryScreen extends Component {
             <div>
               <TextField name="username" receiveData={this.handleData('username')} />
               <TextField name="password" receiveData={this.handleData('password')} />
-              <Link to='/product'>
+              <Link to='/products'>
                 <input type="submit" value="Enter" onClick={this.getData} /> <br/>
               </Link>
               <input type="submit" value="Not a member? Sign up!" onClick={this.signUp} />
@@ -53,7 +54,7 @@ class EntryScreen extends Component {
               <TextField name="email" receiveData={this.handleData('email')}/>
               <TextField name="username" receiveData={this.handleData('username')} />
               <TextField name="password" receiveData={this.handleData('password')} />
-              <Link to='/product'>
+              <Link to='/products'>
                 <input type="submit" value="Enter" onClick={this.getData} /> <br/>
               </Link>
             </div>
@@ -64,4 +65,4 @@ class EntryScreen extends Component {
   }
 }
 
-export default EntryScreen;
+export default Login;

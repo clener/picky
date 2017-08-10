@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import bag from './bag.png';
-import EntryScreen from './Components/EntryScreen';
-import './App.css';
+import bag from '../../bag.png';
+import Login from '../Basic/Login';
+import '../../App.css';
 
 var RouteHandler = require('react-router').RouteHandler;  
 
-class App extends Component {
+class EntryScreen extends Component {
   render() {
     return (
       <div className="App">
@@ -14,11 +14,11 @@ class App extends Component {
             <img src={bag} className="App-logo" alt="logo" />
             <h2>Welcome to Picky</h2>
           </div>
-          <EntryScreen />
+          <Login />
         </div>
       </div>
     );
   }
 }
 
-export default App;
+export default EntryScreen;

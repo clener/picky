@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Product from './Components/Product'
+import EntryScreen from './Components/Pages/EntryScreen';
+import Products from './Components/Pages/Products'
 import registerServiceWorker from './registerServiceWorker';
-import { IndexRoute, Router, Route, browserHistory } from 'react-router';
+import { IndexRoute, Router, Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <Route path="product" component={Product} />
-    </Route>
-  </Router>, 
+  <BrowserRouter>
+    <div>
+      <Route path="/" component={EntryScreen} />
+      <Route path="products" component={Products} />
+    </div>
+  </BrowserRouter>, 
   document.getElementById('root'));
 registerServiceWorker();

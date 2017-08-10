@@ -14,7 +14,6 @@ class TextField extends Component {
     this.setState({
       input: input.target.value
     });
-    console.log(input.target.value);
   }
 
   render() {
