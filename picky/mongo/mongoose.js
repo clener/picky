@@ -1,28 +1,25 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/picky-db');
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+var disconnectDB = function(){
+  mongoose.disconnect();
+  console.log("disconnected");
+  return;
+};
 
-const userSchema = mongoose.Schema({
-    username: String,
-    password: String,
-});
+var connectMongoDB = function(url){
+  mongoose.connect(url);
+  var db = mongoose.connection;
+  return new Promise(function(resolve, reject) {
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function() {
+      console.log("connected");
+      resolve(db);
+   });
+ });
+};
 
-const User = mongoose.model('User', userSchema);
-
-// an example
-db.once('open', function() {
-  const Kyle = new User({
-    username: "Kyle",
-    password: "secret"
-  });
-
-  Kyle.save(function(err, Kyle) {
-    if (err) return console.error(err);
-  });
+module.exports = {
+  disconnectDB: disconnectDB,
+  connectMongoDB: connectMongoDB
+};
   
-});
-
-
-
