@@ -11,7 +11,7 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
       <Route path="/" component={EntryScreen} />
-      <Route path="products" component={Products} />
+      <Route path="/products" component={Products} />
     </div>
   </BrowserRouter>, 
   document.getElementById('root'));
