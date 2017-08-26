@@ -5,3 +5,6 @@ Some useful links:
 
 ### React Routing
 URL: https://www.themarketingtechnologist.co/react-router-an-introduction/
+
+### Passport security
+URL: http://passportjs.org/docs
